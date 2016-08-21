@@ -13,17 +13,19 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 	CKColoredBalloonViewColorTypeSender 	= 0x01
 };
 
+static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
+
 #pragma mark - == CKNavigationController ==
 
 %hook CKNavigationController
 
 - (void) viewDidLoad {
 	%orig;
-	self.view.backgroundColor = [UIColor purpleColor];
+	self.view.backgroundColor = MYMBackgroundColor;
 
 	UINavigationBar *navBar = self.navigationBar;
 	navBar.tintColor = [UIColor whiteColor];
-	navBar.barTintColor = [UIColor purpleColor];
+	navBar.barTintColor = MYMBackgroundColor;
 
 	NSMutableDictionary *titleDict = [NSMutableDictionary dictionaryWithDictionary:navBar.titleTextAttributes];
 	titleDict[NSForegroundColorAttributeName] = [UIColor whiteColor];
@@ -32,18 +34,17 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 
 %end
 
-
 #pragma mark - == CKConversationListController ==
 
 %hook CKConversationListController
 
 - (void) viewDidLoad {
 	%orig;
-	self.view.backgroundColor = [UIColor purpleColor];
+	self.view.backgroundColor = MYMBackgroundColor;
 
 	UISearchBar *searchBar = self.searchController.searchBar;
 	searchBar.tintColor = [UIColor whiteColor];
-	searchBar.barTintColor = [UIColor purpleColor];
+	searchBar.barTintColor = MYMBackgroundColor;
 	searchBar.keyboardAppearance = UIKeyboardAppearanceDark;
 }
 
@@ -58,7 +59,7 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 	cell.backgroundColor = [UIColor clearColor];
 
 	UIView *bgColorView = [[UIView alloc] init];
-	bgColorView.backgroundColor = [UIColor blackColor];
+	bgColorView.backgroundColor = [UIColor lightGrayColor];
 	cell.selectedBackgroundView = bgColorView;
 
 	return cell;
@@ -73,7 +74,6 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 }
 
  %end
- 
 
 #pragma mark - == CKUIBehavior ==
 
@@ -105,7 +105,7 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 }
 
 - (UIColor *) transcriptBackgroundColor {
-	return [UIColor purpleColor];
+	return MYMBackgroundColor;
 }
 
 - (UIColor *) transcriptSeparatorColor {
@@ -134,7 +134,7 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 
 // Progress
 - (UIColor *) progressBarTrackTintColor {
-	return [UIColor purpleColor];
+	return MYMBackgroundColor;
 }
 
 // Recipients
@@ -152,7 +152,7 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 }
 
 - (UIColor *) entryFieldBackgroundColor {
-	return [UIColor purpleColor];
+	return MYMBackgroundColor;
 }
 
 - (UIColor *) entryFieldGrayColor {
@@ -160,14 +160,14 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 }
 
 - (UIColor *) entryFieldCoverBorderColor {
-	return [UIColor purpleColor];
+	return MYMBackgroundColor;
 }
 
 - (UIColor *) entryFieldCoverFillColor {
-	return [UIColor purpleColor];
+	return MYMBackgroundColor;
 }
 
-- (UIColor *)entryFieldButtonColor {
+- (UIColor *) entryFieldButtonColor {
 	return [UIColor purpleColor];
 }
 
@@ -177,7 +177,7 @@ typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 		return @[[UIColor orangeColor], [UIColor orangeColor]];
 	}
 	else if (color == CKColoredBalloonViewColorTypeSMS) {
-		return @[[UIColor purpleColor], [UIColor magentaColor]];
+		return @[[UIColor purpleColor], [UIColor purpleColor]];
 	}
 	else if (color == CKColoredBalloonViewColorTypeSender) {
 		return @[[UIColor brownColor], [UIColor brownColor]];
