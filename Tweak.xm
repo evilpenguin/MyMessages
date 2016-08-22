@@ -10,7 +10,7 @@
 typedef NS_ENUM(char, CKColoredBalloonViewColorType) {
 	CKColoredBalloonViewColorTypeReceiver 	= -0x01,
 	CKColoredBalloonViewColorTypeSMS		= 0x00,
-	CKColoredBalloonViewColorTypeSender 	= 0x01
+	CKColoredBalloonViewColorTypeiMessage 	= 0x01
 };
 
 static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
@@ -215,7 +215,7 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 	else if (color == CKColoredBalloonViewColorTypeSMS) {
 		return @[[UIColor purpleColor], [UIColor purpleColor]];
 	}
-	else if (color == CKColoredBalloonViewColorTypeSender) {
+	else if (color == CKColoredBalloonViewColorTypeiMessage) {
 		return @[[UIColor colorWithRed:0.9f green:0.58f blue:0.0f alpha:1.0f], [UIColor colorWithRed:0.9f green:0.58f blue:0.0f alpha:1.0f]];
 	}
 	
@@ -229,7 +229,7 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 	else if (color == CKColoredBalloonViewColorTypeSMS) {
 		return [UIColor whiteColor];
 	}
-	else if (color == CKColoredBalloonViewColorTypeSender) {
+	else if (color == CKColoredBalloonViewColorTypeiMessage) {
 		return [UIColor whiteColor];
 	}
 
@@ -243,7 +243,7 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 	else if (color == CKColoredBalloonViewColorTypeSMS) {
 		return [UIColor whiteColor];
 	}
-	else if (color == CKColoredBalloonViewColorTypeSender) {
+	else if (color == CKColoredBalloonViewColorTypeiMessage) {
 		return [UIColor whiteColor];
 	}
 
