@@ -85,13 +85,27 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 }
 
 // Send Button
-- (UIColor *) sendButtonColorForColorType:(char)arg1 {
+- (UIColor *) sendButtonColorForColorType:(char)color {
 	return %orig;
 }
 
 // Recipient
-- (UIColor *) recipientTextColorForColorType:(char)arg1 {
-	return [UIColor whiteColor];
+- (UIColor *) recipientTextColorForColorType:(char)color {
+	if (color == CKColoredBalloonViewColorTypeReceiver) { 
+		return [UIColor orangeColor];
+	}
+	else if (color == CKColoredBalloonViewColorTypeSMS) {
+		return [UIColor purpleColor];
+	}
+	else if (color == CKColoredBalloonViewColorTypeiMessage) {
+		return [UIColor colorWithRed:0.9f green:0.58f blue:0.0f alpha:1.0f];
+	}
+	
+	return %orig;
+}
+
+- (UIColor *) recipientsDividerColor {
+	return %orig;
 }
 
  // Details
@@ -136,7 +150,7 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 	return [UIColor whiteColor];
 }
 
-- (UIColor *) waveformColorForColorType:(char)arg1 {
+- (UIColor *) waveformColorForColorType:(char)color {
 	return [UIColor whiteColor];
 }
 
@@ -171,11 +185,6 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 // Progress
 - (UIColor *) progressBarTrackTintColor {
 	return MYMBackgroundColor;
-}
-
-// Recipients
-- (UIColor *) recipientsDividerColor {
-	return [UIColor yellowColor];
 }
 
 // Entry Field
