@@ -1,7 +1,7 @@
 Package: in.evilpengu.mymessages
 Name: MyMessages
 Depends: mobilesubstrate
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: A tweak that changes Messages!
 Maintainer: James Emrich

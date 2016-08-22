@@ -1,7 +1,7 @@
 /*
  * MyMessages
  *    - a tweak to do awesome things to messages
- * Version 0.0.1
+ * Version 0.0.3
  * by EvilPenguin (James Emrich)
  */
 
