@@ -79,6 +79,21 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 
 %hook CKUIBehavior
  
+// Notification
+- (UIColor *) notificationSubtitleColor {
+	return [UIColor whiteColor];
+}
+
+// Send Button
+- (UIColor *) sendButtonColorForColorType:(char)arg1 {
+	return %orig;
+}
+
+// Recipient
+- (UIColor *) recipientTextColorForColorType:(char)arg1 {
+	return [UIColor whiteColor];
+}
+
  // Details
 - (UIColor *) detailsBackgroundColor {
 	return %orig;
@@ -112,8 +127,29 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 	return [UIColor redColor];
 }
 
+// Wave
+- (UIColor *) waveformUnplayedColor {
+	return [UIColor whiteColor];
+}
+
+- (UIColor *) waveformDisabledColor {
+	return [UIColor whiteColor];
+}
+
+- (UIColor *) waveformColorForColorType:(char)arg1 {
+	return [UIColor whiteColor];
+}
+
 // Attachment
 - (UIColor *) attachmentBalloonTitleTextColor {
+	return [UIColor whiteColor];
+}
+
+- (UIColor *) attachmentBalloonActionColor {
+	return [UIColor whiteColor];
+}
+
+-(UIColor *) attachmentBalloonSubtitleTextColor {
 	return [UIColor whiteColor];
 }
 
@@ -180,7 +216,7 @@ static UIColor *MYMBackgroundColor = [UIColor colorWithWhite:0.29f alpha:1.0f];
 		return @[[UIColor purpleColor], [UIColor purpleColor]];
 	}
 	else if (color == CKColoredBalloonViewColorTypeSender) {
-		return @[[UIColor brownColor], [UIColor brownColor]];
+		return @[[UIColor colorWithRed:0.9f green:0.58f blue:0.0f alpha:1.0f], [UIColor colorWithRed:0.9f green:0.58f blue:0.0f alpha:1.0f]];
 	}
 	
 	return %orig;
